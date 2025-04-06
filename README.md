@@ -31,9 +31,6 @@ The main goal was to configure Wazuh Manager and test its functionality by loggi
 - Upon attempting to log in with the wrong PEM key, Wazuh captured the event and recorded the failed login attempt in the logs. This demonstrates Wazuh's ability to monitor and alert for potential security incidents.
 - ![Login Failure](screenshots/SSH_Alert.png)
 
-## Future Improvements
-- Simulate other attacks such as bruteforcing of PEM key or DDoS pings.
-
 ## Requirements
 - AWS account with access to EC2.
 - Wazuh Manager installation on Amazon Linux 2.
