@@ -25,12 +25,25 @@ The main goal was to configure Wazuh Manager and test its functionality by loggi
 ### 3. Testing Configuration
 - Attempted logging in with an incorrect PEM key to simulate an unauthorized access attempt.
 - ![Intentional Incorrect Login](screenshots/SSH_Wrong_Connection.png)
-- The failed login attempt was successfully logged and flagged by Wazuh, confirming the system's functionality.
-
-## Logs and Observations
-- Upon attempting to log in with the wrong PEM key, Wazuh captured the event and recorded the failed login attempt in the logs. This demonstrates Wazuh's ability to monitor and alert for potential security incidents.
+- The failed login attempt with an incorrect PEM key was successfully logged and flagged by Wazuh, confirming the system's functionality.
 - ![Login Failure](screenshots/SSH_Alert.png)
+
+### 4. Installing and Configuring Nginx
+- Installed Nginx on the EC2 instance to serve as a web server.
+- Configured Nginx to log HTTP requests and errors.
+- ![Nginx Status](screenshots/nginx_status.png)
+- ![Nginx Page](screenshots/nginx_welcome_page.png)
+- Integrated Nginx logs into Wazuh to monitor HTTP access attempts.
+- ![Nginx Wazuh](screenshots/nginx_configured_to_wazuh.png)
+
+### 5. Testing Nginx Integration
+- Used a `curl` command to access the HTTP link on the server, resulting in a "no token" error.
+- ![Curl No Token](screenshots/http_connection.png)
+- The failed HTTP login attempt was logged by Wazuh, confirming the integration and functionality of Nginx with the SIEM system.
+- ![Failed HTTP Attempt](screenshots/http_alert.png)
+
 
 ## Requirements
 - AWS account with access to EC2.
 - Wazuh Manager installation on Amazon Linux 2.
+- Nginx installation and integration onto Wazuh.
